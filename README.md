@@ -1,61 +1,116 @@
+# Player Market Value Prediction
 
-# Football Player Value Prediction
+## Project Overview
 
-## Problem Statement
+This project is developed as part of the **Fundamentals of Machine Learning** course. The goal is to predict the market value of football players using machine learning techniques. The dataset used consists of player attributes from FIFA17, and the model is built using regression techniques to estimate a player's market value.
 
-In football, player market value is influenced by a combination of factors such as age, performance statistics, club reputation, and potential. However, determining the exact market value of a player remains subjective and can vary across teams, agents, and media outlets. The goal of this project is to build a machine learning-based prediction system that accurately estimates a player's market value based on these influential features.
+## Dataset
 
-## Project Structure
+- **Source**: [FIFA17 dataset](https://www.kaggle.com/datasets/bryanb/fifa-player-stats-database)
+- **Rows**: 17,560
+- **Columns**: 59
+- **Structure**: The dataset includes various player attributes such as Age, Nationality, Overall Rating, Potential, Position, Club, Wage, Skill Moves, and many more.
 
-/pmv │── api/ │ ├── app.py # FastAPI backend to handle requests and predictions │── static/ │ ├── index.html # Frontend HTML structure │ ├── style.css # CSS styling for the frontend │ ├── script.js # JavaScript to interact with the backend │── models/ # Directory containing trained machine learning models │── notebooks/ # Jupyter notebooks for exploratory data analysis (EDA) and model training │── src/ │ ├── dataprocessing.py # Data processing utilities │ ├── trainedmodel.py # Code for loading and predicting with the trained models │── data/ # Contains FIFA17 dataset and filtered version │── .gitignore # Git ignore file to exclude unnecessary files from version control │── .gitattributes # Git attributes to define project-specific settings │── README.md # Project overview and setup instructions │──
+### Data Documentation
 
+- **Source of Data**: The dataset was obtained from Kaggle.
+- **License / Terms of Use**: The dataset is publicly available on Kaggle; check the dataset page for specific licensing terms.
+- **Data Structure**: The dataset is organized in a structured CSV format with 59 columns representing different player attributes.
+- **Features**: The dataset includes key features such as:
+  - **Personal Information**: ID, Name, Age, Nationality
+  - **Performance Metrics**: Overall Rating, Potential, Skill Moves, Weak Foot
+  - **Financial Information**: Value, Wage
+  - **Club Information**: Club Name, Contract Valid Until, Loaned From
+  - **Physical Attributes**: Height, Weight, Preferred Foot
+  - **Technical Skills**: Passing, Dribbling, Shooting, Defending, Goalkeeping Attributes
+- **Source**: FIFA17 dataset
+- **Rows**: 17,560
+- **Columns**: 59
+- **Structure**: The dataset includes various player attributes such as Age, Nationality, Overall Rating, Potential, Position, Club, Wage, Skill Moves, and many more.
+
+## Problem Definition
+
+The objective of this project is to develop a predictive model that estimates the market value of football players based on their attributes. Accurately predicting a player's market value is crucial for clubs, scouts, and analysts to make informed decisions regarding player transfers and contracts. The challenge arises due to the dynamic nature of player valuation, which is influenced by multiple factors such as performance, potential, club reputation, and market trends. The problem is formulated as a regression task, where the target variable is the player's market value.
+
+## Data Preprocessing
+
+- Converted player height and weight into numeric values (cm and kg respectively).
+- Handled missing values and outliers.
+- Encoded categorical features (e.g., Club, Nationality, Position).
+- Scaled numerical features for better model performance.
+
+## Exploratory Data Analysis (EDA)
+
+- Visualized distributions of key features.
+- Examined correlations between attributes and market value.
+- Identified missing values and outliers.
+
+## Model Implementation
+
+- **Algorithm Used**: Random Forest Regression. The Random Forest model was chosen due to its ability to handle complex relationships within the data, its robustness against overfitting, and its capability to capture nonlinear interactions between player attributes and market value.
+- **Splitting Data**: 80% training, 20% testing.
+- **Hyperparameter Tuning**: Applied techniques such as cross-validation to optimize performance.
+
+## Model Evaluation
+
+- **Metrics Used**:
+  - Mean Squared Error (MSE)
+  - R-squared (R²)
+- **Comparison**: Model performance was evaluated against baseline models.
+
+## Deployment
+
+The trained model is deployed as an API using **FastAPI** and is hosted on Render. You can access the deployed API at: [Kal Players Market Value Prediction](https://kal-players-market-value-prediction.onrender.com/), allowing users to input player attributes and receive predicted market values.
+
+## How to Use
+
+You can directly access the deployed API at: [Kal Players Market Value Prediction](https://kal-players-market-value-prediction.onrender.com/).
+
+Alternatively, if you wish to run the project locally:
+
+1. Clone this repository.
+2. Install dependencies using:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the FastAPI server:
+   ```bash
+   uvicorn api.app:app --reload
+   ```
 
 ## Requirements
-
-- Python 3.x
-- FastAPI
-- Uvicorn
-- scikit-learn
+The project requires the following dependencies:
 - pandas
 - numpy
+- scikit-learn
+- joblib
+- fastapi
 - pathlib
-- other dependencies listed in `requirements.txt`
+- pydantic
+- matplotlib
+- uvicorn
 
-Install the required Python dependencies by running:
+## Repository Structure
 
-##### Setup and Running the Application
+```
+├── api/
+│   ├── app.py  # FastAPI Backend
+├── data/
+│   ├── FIFA17_official.csv  # Raw dataset
+│   ├── FIFA17_filtered.csv  # Processed dataset
+├── models/  # Trained machine learning models
+├── notebooks/
+│   ├── EDA.ipynb  # Exploratory Data Analysis
+│   ├── modeltraining.ipynb  # Model training
+├── src/
+│   ├── dataprocessing.py  # Data cleaning and preprocessing
+│   ├── trainedmodel.py  # Model loading and inference
+├── .gitignore
+├── README.md  # Project documentation
+├── requirements.txt  # Dependencies
+```
 
-1. Clone the repository:
+## Author
 
-- git clone <repository_url> cd <repository_directory>
+**Kalkidan Zenebe** - Bachelor of Software Engineering, Debre Birhan University.
 
-
-2. Install dependencies:
-- pip install -r requirements.txt
-
-
-3. Start the FastAPI backend:(using one of the commands and run in the terminal and start the api)
-- uvicorn api.app:app --reload
-- or you an you can use python api/app.py
-
-
-4. Open `static/index.html` in your browser to access the frontend.
-
-## Features
-
-- **Prediction Model:** Predicts a football player's market value based on various features such as age, potential, club, nationality, and performance statistics.
-- **User Interface:** Simple frontend to allow users to input player information and see the predicted value.
-
-## Usage
-
-1. On the frontend (`index.html`), input the player's features such as age, club, position, and performance stats.
-2. Submit the form, which sends a request to the backend.
-3. The FastAPI backend processes the request and responds with the predicted value, which is displayed on the frontend.
-
-## Contributing
-
-Feel free to fork the repository and contribute. Open issues or submit pull requests for improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License.
