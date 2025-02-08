@@ -1,0 +1,105 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 40px;
+    text-align: center;
+    background-color: #121212; /* Dark background for a sleek look */
+    color: #fff; /* White text for contrast */
+}
+
+/* Header Styling */
+h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff6f00; /* Orange color for header */
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+form {
+    display: inline-block;
+    text-align: left;
+    padding: 30px;
+    border: 1px solid #333; /* Darker border for better contrast */
+    border-radius: 12px;
+    background-color: #1c1c1c; /* Dark background for form */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Form Labels */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ff6f00; /* Orange color for labels */
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #555; /* Darker border for inputs */
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #333; /* Dark background for inputs */
+    color: #fff; /* White text inside inputs */
+    transition: border-color 0.3s ease;
+}
+
+/* Input Focus Effect */
+input:focus {
+    border-color: #ff6f00; /* Orange border on focus */
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #ff6f00; /* Orange button background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #e65c00; /* Darker orange on hover */
+    transform: scale(1.05);
+}
+
+/* Button Focus Effect */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 111, 0, 0.6);
+}
+
+/* Result Section */
+#result {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6f00; /* Orange color for results */
+}
+
+/* Responsive Design: Ensure form is centered */
+@media (max-width: 768px) {
+    body {
+        margin: 20px;
+    }
+
+    form {
+        padding: 25px;
+        width: 90%;
+    }
+}
+
+
+
