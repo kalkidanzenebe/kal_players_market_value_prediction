@@ -1,4 +1,4 @@
-⚽ # FootBall Player Market Value Prediction
+# ⚽ FootBall Player Market Value Prediction
 
 ## Project Overview
 
