@@ -90,25 +90,6 @@ The project requires the following dependencies:
 - matplotlib
 - uvicorn
 
-## Repository Structure
-
-```
-├── api/
-│   ├── app.py  # FastAPI Backend
-├── data/
-│   ├── FIFA17_official.csv  # Raw dataset
-│   ├── FIFA17_filtered.csv  # Processed dataset
-├── models/  # Trained machine learning models
-├── notebooks/
-│   ├── EDA.ipynb  # Exploratory Data Analysis
-│   ├── modeltraining.ipynb  # Model training
-├── src/
-│   ├── dataprocessing.py  # Data cleaning and preprocessing
-│   ├── trainedmodel.py  # Model loading and inference
-├── .gitignore
-├── README.md  # Project documentation
-├── requirements.txt  # Dependencies
-```
 
 ## Author
 
