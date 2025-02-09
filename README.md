@@ -56,6 +56,7 @@ The objective of this project is to develop a predictive model that estimates th
 - **Metrics Used**:
   - Mean Squared Error (MSE)
   - R-squared (R²)
+  - Mean Absolute Error (MAE)
 - **Comparison**: Model performance was evaluated against baseline models.
 
 ## Deployment
